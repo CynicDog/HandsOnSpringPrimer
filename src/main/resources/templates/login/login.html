@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
 
-</body>
+        <!--Read CSS-->
+        <link rel = "stylesheet" th:href="@{/webjars/bootstrap/5.2.0-beta1/dist/css/bootstrap.min.css}">
+        <link rel = "stylesheet" th:href="@{/css/login/login.css}">
+
+        <!--Read JS-->
+        <script th:src = "@{/webjars/jquery/3.6.0/jquery.min.js}" defer> </script>
+        <script th:src = "@{/webjars/bootstrap/5.2.0-beta1/dist/js/bootstrap.min.js}" defer> </script>
+
+        <title>Login</title>
+    </head>
+
+    <body class = "bg-light">
+        <div class = "text-center">
+            <form method = "post" th:action = "@{/login}" class = "form-login">
+                <h2> Login </h2>
+                <!-- User ID -->
+                <div class = "form-group">
+                    <label for = "userId" class = "sr-only"> userId </label>
+                    <input type = "text" class = "form-control" placeholder = "User ID" name = "userId" id = "userId"/>
+                </div>
+
+                <!-- Password -->
+                <div class = "form-group">
+                    <label for = "password" class = "sr-only"> password </label>
+                    <input type = "text" class = "form-control" placeholder = "Password" name = "password" id = "password"/>
+                    <!-- input type for password must be "password". Here it is specified as "text"
+                     just for the purpose of display of the input value. -->
+                </div>
+            </form>
+            <a th:href = "@{/user/signup}"> Signup </a>
+        </div>
+    </body>
 </html>
