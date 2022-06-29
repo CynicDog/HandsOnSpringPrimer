@@ -1,3 +1,5 @@
+<!-- login.html -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
@@ -18,22 +20,26 @@
     <body class = "bg-light">
         <div class = "text-center">
             <form method = "post" th:action = "@{/login}" class = "form-login">
-                <h2> Login </h2>
+                <h2>Login</h2>
                 <!-- User ID -->
                 <div class = "form-group">
-                    <label for = "userId" class = "sr-only"> userId </label>
+                    <label for = "userId" class = "sr-only">  </label>
                     <input type = "text" class = "form-control" placeholder = "User ID" name = "userId" id = "userId"/>
                 </div>
-
                 <!-- Password -->
                 <div class = "form-group">
-                    <label for = "password" class = "sr-only"> password </label>
+                    <label for = "password" class = "sr-only">  </label>
                     <input type = "text" class = "form-control" placeholder = "Password" name = "password" id = "password"/>
                     <!-- input type for password must be "password". Here it is specified as "text"
                      just for the purpose of display of the input value. -->
                 </div>
+
+                <!-- Login button -->
+                <input type = "submit" value = "Login" class = "btn btn-primary mt-3" />
             </form>
-            <a th:href = "@{/user/signup}"> Signup </a>
+            <a th:href = "@{/user/signup}">Signup</a>
         </div>
     </body>
 </html>
+
+
