@@ -1,0 +1,62 @@
+ * Dependency
+    : Dependencies mean that one class has a field in another class or uses a method.
+
+ * Injection
+    : Injection is the assignment of an instance to a variable.
+
+ * Dependency Injection
+    : Dependency injection is the assignment of an instance of a class that inherits
+    from an interface or abstract class. For example, Java has an interface called "List".
+    You cannot assign an instance to it unless it is a class that implements the interface
+    (such as ArrayList or LinkedList).
+
+ * Interface
+    : The reason why interfaces are used is that, because of the possibility of changes in
+    classes, the act of development, maintenance and testing of codes gets easier by using
+    interfaces.
+
+ * Component scan
+    : When Spring starts, it looks for the class that is the target of DI. This process is
+    called component scan. The component scan looks for the following annotated classes:
+
+        1. @Component: A generic stereotype for any Spring-managed component.
+                      @Repository, @Service, and @Controller are specializations of @Component
+                      for more specific use cases, for example, in the persistence, service,
+                      and presentation layers, respectively.
+        2. @Controller
+        3. @Service
+        4. @Repository
+        5. @Configuration
+        6. @RestController
+        7. @ControllerAdvice
+        8. @ManagedBean
+        9. @Named
+        10. @Mapper
+        11. @Bean
+
+      Classes with these annotations are then registered in the DI container. A class
+     registered in a DI container is called a 'bean'. Then instances inherited from those
+     classes or beans are injected where @Autowired is attached.
+
+ * Instance Lifecycle Management
+    : Spring's DI automatically creates and destroys instances. The duration of instances
+    can be specified by scope. In Spring, there are following scopes;
+
+        1. singleton: Spring creates only one instance at startup. One instance is shared
+                      and used throughout the application. Without the @Scope annotation,
+                      all are singletons.
+        2. prototype: Each time you get a bean, an instance is created.
+        3. session: Instances are created per HTTP session.
+        4. request: Instances are created per HTTP request.
+        5. globalSession: Instances are created per GlobalSession in the portlet environment.
+        6. application: Instances are created per servlet context.
+
+ * JavaConfig
+    : The class that instantiates a bean is commonly referred to as JavaConfig. JavaConfig is
+    used when a structure of beans generation is complex. It is customary to annotate JavaConfig
+    with @Configuration.
+
+
+
+
+
