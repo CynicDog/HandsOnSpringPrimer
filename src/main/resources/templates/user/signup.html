@@ -38,7 +38,7 @@
             <!-- User Name -->
             <div class = "form-group">
                 <label for = "userName" th:text = "#{userName}"> </label>
-                <input type = "text" class = "form-control" id ="userName" th:field = "*{userName}" th:errorclass = "in-invalid"/>
+                <input type = "text" class = "form-control" id ="userName" th:field = "*{userName}" th:errorclass = "is-invalid"/>
                 <div class = "invalid-feedback" th:errors = "*{userName}"> </div>
             </div>
 

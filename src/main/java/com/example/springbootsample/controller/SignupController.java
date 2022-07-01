@@ -1,12 +1,14 @@
 package com.example.springbootsample.controller;
 
 import com.example.springbootsample.application.service.UserApplicationService;
+import com.example.springbootsample.form.GroupOrder;
 import com.example.springbootsample.form.SignupForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +42,7 @@ public class SignupController {
 
     // ** User signup process ** //
     @PostMapping("/signup")
-    public String postSignUp(Model model, Locale locale, @ModelAttribute SignupForm signupForm,
+    public String postSignUp(Model model, Locale locale, @ModelAttribute @Validated(GroupOrder.class) SignupForm signupForm,
                              BindingResult bindingResult) {
 
         // Input check result
