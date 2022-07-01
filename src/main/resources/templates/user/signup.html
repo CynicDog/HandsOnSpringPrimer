@@ -60,7 +60,7 @@
             <div class = "form-group">
                 <div th:each="item:${genderMap}" class = "form-check-inline">
                     <input type = "radio" class = "form-check-input"
-                           th:value = "${item.value}" th:field = "*{gender}" th:errorclass = "is-valid"/>
+                           th:value = "${item.value}" th:field = "*{gender}" th:errorclass = "is-invalid"/>
 
                     <label class = "form-check-label" th:text = "${item.key}">  </label>
                 </div>
