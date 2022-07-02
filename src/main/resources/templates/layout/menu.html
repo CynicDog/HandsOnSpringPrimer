@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!-- menu.html -->
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<!--    `layout:decorate` specifies which layout to include in current HTML. -->
+
+    <head>
+    </head>
+
+    <body>
+        <nav layout:fragment="menu" class="bg-light">
+            <ul class="nav nav-pills nav-stacked flex-column">
+                <li role="presentation">
+                    <a class="nav-link" th:href="@{'/user/list'}"> User List </a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>

@@ -52,7 +52,6 @@ public class SignupController {
         }
 
         log.info(signupForm.toString());
-
         // React to login screen
         return "redirect:/login";
     }
