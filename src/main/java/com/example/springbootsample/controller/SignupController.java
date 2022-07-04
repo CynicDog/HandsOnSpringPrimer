@@ -1,9 +1,12 @@
 package com.example.springbootsample.controller;
 
 import com.example.springbootsample.application.service.UserApplicationService;
+import com.example.springbootsample.domain.user.model.MUser;
+import com.example.springbootsample.domain.user.service.UserService;
 import com.example.springbootsample.form.GroupOrder;
 import com.example.springbootsample.form.SignupForm;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +27,12 @@ public class SignupController {
 
     @Autowired
     private final UserApplicationService userApplicationService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     public SignupController(UserApplicationService userApplicationService) {
         this.userApplicationService = userApplicationService;
@@ -52,7 +61,14 @@ public class SignupController {
         }
 
         log.info(signupForm.toString());
-        // React to login screen
+
+        // Convert from to MUser class
+        MUser user = modelMapper.map(signupForm, MUser.class);
+
+        // user signup
+        userService.signup(user);
+
+        // Redirect to login screen
         return "redirect:/login";
     }
 }
