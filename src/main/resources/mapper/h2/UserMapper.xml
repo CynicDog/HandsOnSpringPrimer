@@ -5,6 +5,17 @@
 
 <!-- Mapper anx xml mapping -->
 <mapper namespace="com.example.springbootsample.repository.UserMapper">
+    <!-- mapping definition for user detail -->
+    <resultMap type="com.example.springbootsample.domain.user.model.MUser" id="userMap">
+        <id column="user_id" property="userId"/>
+        <result column="password" property="password"/>
+        <result column="user_name" property="userName"/>
+        <result column="birthday" property="birthday"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <result column="department_id" property="departmentId"/>
+        <result column="role" property="role"/>
+    </resultMap>
     <!-- user registration -->
     <insert id="insertOne">
         insert into m_user(user_id , password , user_name , birthday ,
@@ -13,10 +24,26 @@
                 #{age} , #{gender} , #{departmentId} , #{role})
     </insert>
 
+    <!-- Get users -->
     <select id="findMany" resultType="com.example.springbootsample.domain.user.model.MUser">
          select * from m_user
     </select>
 
+    <!-- Get a user -->
+    <select id="findOne" resultMap="userMap">
+        select * from m_user where user_id = #{userId}
+    </select>
+
+    <!-- Update user -->
+    <update id="updateOne">
+        update m_user set password = #{password},
+                          user_name = #{userName} where user_id = #{userId}
+    </update>
+
+    <!-- Delete user -->
+    <delete id="deleteOne">
+        delete from m_user where user_id = #{userId}
+    </delete>
 </mapper>
 
 

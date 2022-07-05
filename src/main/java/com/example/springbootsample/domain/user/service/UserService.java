@@ -8,6 +8,17 @@ public interface UserService {
     // Signup user
     public void signup(MUser user);
 
-    // Get user
+    // Get users
     public List<MUser> getUsers();
+
+    // Get a user
+    public MUser getUserOne(String userId);
+
+    // Update user
+    public void updateUserOne(String userId,
+                              String password,
+                              String userName);
+
+    // Delete user
+    public void deleteUserOne(String userId);
 }

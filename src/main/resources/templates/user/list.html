@@ -26,6 +26,7 @@
                             <th class="th-width"> Birthday </th>
                             <th class="th-width"> Age </th>
                             <th class="th-width"> Gender </th>
+                            <th> </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,9 @@
                             <td th:text="${#dates.format(item.birthday, 'dd/MM/YYYY')}"> </td>
                             <td th:text="${item.age}"> </td>
                             <td th:text="${item.gender == 1}? 'Male':'Female'"> </td>
+                            <td>
+                                <a class="btn btn-primary" th:href="@{'/user/detail/' + ${item.userId}}"> Details </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
