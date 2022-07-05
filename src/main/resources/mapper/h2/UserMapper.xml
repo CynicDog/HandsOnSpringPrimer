@@ -1,9 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper anx xml mapping -->
 <mapper namespace="com.example.springbootsample.repository.UserMapper">
+    <!-- user registration -->
     <insert id="insertOne">
-        insert into m_user( user_id , password , user_name , birthday , age , gender , department_id , role )
-        values ( #{userId} , #{password} , #{userName} , #{birthday} , #{age} , #{gender} , #{departmentId} , #{role} )
+        insert into m_user(user_id , password , user_name , birthday ,
+                           age , gender , department_id , role)
+        values (#{userId} , #{password} , #{userName} , #{birthday} ,
+                #{age} , #{gender} , #{departmentId} , #{role})
     </insert>
+
+    <select id="findMany" resultType="com.example.springbootsample.domain.user.model.MUser">
+         select * from m_user
+    </select>
+
 </mapper>
+
 

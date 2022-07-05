@@ -72,3 +72,4 @@ public class SignupController {
         return "redirect:/login";
     }
 }
+
