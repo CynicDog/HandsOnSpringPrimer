@@ -27,6 +27,14 @@
     <!-- Get users -->
     <select id="findMany" resultType="com.example.springbootsample.domain.user.model.MUser">
          select * from m_user
+        <where>
+            <if test="userId!=null">
+                user_id like '%' || #{userId} || '%'
+            </if>
+            <if test="userName!=null">
+                and user_name like '%' || #{userName} || '%'
+            </if>
+        </where>
     </select>
 
     <!-- Get a user -->

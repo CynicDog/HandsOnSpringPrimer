@@ -8,13 +8,32 @@
 
     <head>
         <title> User List </title>
-        <link rel="stylesheet" th:href="@{/css/user/list.css}"
+        <link rel="stylesheet" th:href="@{/css/user/list.css}">
     </head>
 
     <body>
         <div layout:fragment="content">
             <div class="header border-bottom">
                 <h1 class="h2"> User List </h1>
+            </div>
+            <div class="mb-4">
+                <form id="user-search-form" method="post" th:action="@{/user/list}" class="row g-3 align-items-center" th:object="${userListForm}">
+                    <div class="col-auto">
+                        <label for="userId"> User ID </label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control" th:field="*{userId}" id="userId"/>
+                    </div>
+                    <div class="col-auto">
+                        <label for="userName"> User Name </label>
+                    </div>
+                    <div class="col-auto mx-sm-3">
+                        <input type="text" class="form-control" th:feild="*{userName}" id="userName"/>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-primary" type="submit"> search </button>
+                    </div>
+                </form>
             </div>
             <!-- List display -->
             <div>
