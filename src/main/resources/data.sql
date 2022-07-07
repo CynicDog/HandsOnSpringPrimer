@@ -9,7 +9,7 @@ VALUES ('system@co.jp', 'password', 'System Administrator', '2000-01-01', 21, 1,
 /* Department Master */
 INSERT INTO m_department(department_id, department_name)
 VALUES (1, 'System Management'),
-       (2, 'SALES');
+       (2, 'Sales');
 
 /* Salary Table */
 INSERT INTO t_salary(user_id, year_month, salary)

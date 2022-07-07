@@ -30,8 +30,9 @@ public class UserDetailController {
         MUser user = userService.getUserOne(userId);
         user.setPassword(null);
 
-        // Get user
+        // Convert MUser to userDetailForm
         userDetailForm = modelMapper.map(user, UserDetailForm.class);
+        userDetailForm.setSalaryList(user.getSalaryList());
 
         // Register in Model
         model.addAttribute("userDetailForm", userDetailForm);
