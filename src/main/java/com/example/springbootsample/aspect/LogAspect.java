@@ -56,7 +56,6 @@ public class LogAspect {
             throw exception;
         }
     }
-
 }
 
 
