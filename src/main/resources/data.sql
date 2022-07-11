@@ -16,3 +16,10 @@ INSERT INTO t_salary(user_id, year_month, salary)
 VALUES ('user@co.jp', '11/2020', 2800),
        ('user@co.jp', '12/2020', 2900),
        ('user@co.jp', '01/2021', 3000);
+
+INSERT INTO m_user(user_id, password, user_name, birthday, age, gender, department_id, role)
+VALUES ('tom@gmail.com',
+        '$2a$10$/aBhFUYx0UHBZ.kb0TBQguZVZbaL0sJ1PstlPZqw.1qbETK.rnwtS',
+        'Tom',
+        '1986-11-05', 35, 1, 2,
+        'ROLE_GENERAL');
