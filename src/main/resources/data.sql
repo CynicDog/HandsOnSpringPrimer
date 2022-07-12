@@ -3,8 +3,15 @@ VALUES ('1', 'Tom', 30);
 
 /* User Master */
 INSERT INTO m_user(user_id, password, user_name, birthday, age, gender, department_id, role)
-VALUES ('system@co.jp', 'password', 'System Administrator', '2000-01-01', 21, 1, 1, 'ROLE_ADMIN'),
-       ('user@co.jp', 'password', 'User1', '2000-01-01', 21, 2, 2, 'ROLE_GENERAL');
+VALUES ('system@co.jp', '$2a$10$RNM65itbGqR7AYCSp01.sO./ltcwXe8xYD8HUxpx1Yf01PWRB36Ey',
+        'System Administrator',
+        '2000-01-01', 21, 1, 1,
+        'ROLE_ADMIN'),
+
+       ('user@co.jp', '$2a$10$QoJQ9rVDvMD3lRGG.qzoy.YzhosZj1cVz43jtY2i4pBTctLrN.bsK',
+        'User1',
+        '2000-01-01', 21, 2, 2,
+        'ROLE_GENERAL');
 
 /* Department Master */
 INSERT INTO m_department(department_id, department_name)

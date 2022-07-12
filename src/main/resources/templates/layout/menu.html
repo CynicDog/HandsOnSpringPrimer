@@ -3,19 +3,23 @@
 
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{layout/layout}">
 <!--    `layout:decorate` specifies which layout to include in current HTML. -->
 
-<head>
-</head>
+    <head>
+    </head>
 
-<body>
-<nav layout:fragment="menu" class="bg-light">
-    <ul class="nav nav-pills nav-stacked flex-column">
-        <li role="presentation">
-            <a class="nav-link" th:href="@{'/user/list'}"> User List </a>
-        </li>
-    </ul>
-</nav>
-</body>
+    <body>
+        <nav layout:fragment="menu" class="bg-light">
+            <ul class="nav nav-pills nav-stacked flex-column">
+                <li role="presentation">
+                    <a class="nav-link" th:href="@{'/user/list'}"> User List </a>
+                </li>
+                <li role="presentation" sec:authorize="hasRole('ADMIN')">
+                    <a class="nav-link" th:href="@{'/admin'}"> Admin Only </a>
+                </li>
+            </ul>
+        </nav>
+    </body>
 </html>
