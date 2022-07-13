@@ -66,5 +66,3 @@ function deleteUser() {
         // process to always execute
     })
 }
-
-
