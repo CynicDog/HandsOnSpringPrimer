@@ -5,6 +5,7 @@
     <head>
         <title> User Details </title>
         <link rel="stylesheet" th:href="@{/css/user/list.css}">
+        <script th:src="@{/js/user/detail.js}" defer> </script>
     </head>
 
     <body>
@@ -55,6 +56,10 @@
                 <div class="text-center">
                     <button class="btn btn-danger" type="submit" name="deletePost"> delete </button>
                     <button class="btn btn-primary" type="submit" name="updatePost"> update </button>
+                </div>
+                <div class="text-center mt-2">
+                    <button id="btn-delete" class="btn btn-danger" type="button"> delete(REST) </button>
+                    <button id="btn-update" class="btn btn-primary" type="button"> update(REST) </button>
                 </div>
                 <th:block th:if="*{salaryList != null and salaryList.size() > 0}">
                     <div class="header border-bottom">
