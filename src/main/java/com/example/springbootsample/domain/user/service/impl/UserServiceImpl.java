@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    // User signup
+    /** Signup User */
     @Override
     public void signup(MUser user) {
         user.setDepartmentId(1);
@@ -37,19 +37,19 @@ public class UserServiceImpl implements UserService {
         mapper.insertOne(user);
     }
 
-    // Get users
+    /** Get Users */
     @Override
     public List<MUser> getUsers(MUser user) {
         return mapper.findMany(user);
     }
 
-    // Get a user
+    /** Get a user */
     @Override
     public MUser getUserOne(String userId) {
         return mapper.findOne(userId);
     }
 
-    // Update user
+    /** Update user */
     @Transactional
     @Override
     public void updateUserOne(String userId,
@@ -60,13 +60,13 @@ public class UserServiceImpl implements UserService {
         mapper.updateOne(userId, encryptPassword, userName);
     }
 
-    // Delete user
+    /** Delete user */
     @Override
     public void deleteUserOne(String userId) {
         int count = mapper.deleteOne(userId);
     }
 
-    // Get Login user information
+    /** Get Login user information */
     @Override
     public MUser getLoginUser(String userId) {
         return mapper.findLoginUser(userId);
