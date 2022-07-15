@@ -20,12 +20,12 @@ function search() {
 
     // ajax communication
     $.ajax({
-        type: "GET",
-        url: '/user/get/list',
-        cache: false,
-        data: formData,
-        dataType: 'json',
-        contentType: 'application/json; charset=UTF-8',
+        type:"GET",
+        url:'/user/get/list',
+        cache:false,
+        data:formData,
+        dataType:'json',
+        contentType:'application/json; charset=UTF-8',
         timeout:5000,
 
     }).done(function(data) {

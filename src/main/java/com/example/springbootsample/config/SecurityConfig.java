@@ -40,12 +40,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // Accessible pages without log-in
-        http.authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/user/signup").permitAll()
-                .antMatchers("/user/signup/rest").permitAll()
-                .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
-                .anyRequest().authenticated(); // Otherwise no direct linking is not allowed
+        http.
+                authorizeRequests()
+                        .antMatchers("/login").permitAll()
+                        .antMatchers("/user/signup").permitAll()
+                        .antMatchers("/user/signup/rest").permitAll()
+                        .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
+                        .anyRequest().authenticated(); // Otherwise no direct linking is not allowed
 
         // Login process
         http

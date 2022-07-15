@@ -49,6 +49,7 @@ public class UserRestController {
     public RestResult postSignup(@Validated(GroupOrder.class) SignupForm signupForm,
                                  BindingResult bindingResult,
                                  Locale locale) {
+
         // input check result
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
@@ -59,6 +60,7 @@ public class UserRestController {
             }
             return new RestResult(90, errors);
         }
+
         MUser user = modelMapper.map(signupForm, MUser.class);
         userService.signup(user);
 
@@ -73,12 +75,14 @@ public class UserRestController {
                 userDetailForm.getPassword(),
                 userDetailForm.getUserName());
 
-        return 0; }
+        return 0;
+    }
 
     // Delete User
     @DeleteMapping("/delete")
     public int deleteUser(UserDetailForm userDetailForm) {
         userService.deleteUserOne(userDetailForm.getUserId());
 
-        return 0; }
+        return 0;
+    }
 }
