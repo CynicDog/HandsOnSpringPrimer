@@ -51,7 +51,7 @@ public class LogAspect {
 
         } catch (Exception exception){
             // Output error log
-            log.error("Method abend: " + jp.getSignature());
+            log.error("Method end: " + jp.getSignature());
 
             throw exception;
         }
