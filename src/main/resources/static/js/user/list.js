@@ -12,7 +12,87 @@ jQuery(function($) {
     $('#btn-search').click(function (event) {
         search();
     });
+
+    // Event when the download button(JS) is clicked
+    $('#download-java-script').click(function() {
+        event.preventDefault();
+
+        var xmlHttpRequest = new XMLHttpRequest();
+
+        // request destination
+        xmlHttpRequest.open('POST', '/user/list/download', true);
+
+        // response type
+        xmlHttpRequest.responseType = 'blob';
+
+        // define successful request processing
+        xmlHttpRequest.onload = function(e) {
+            var fileName = 'userListJavaScript.csv';
+
+            fileSave(this.response, fileName);
+        };
+
+        // CSRF measures
+        var token = $("input[name='_csrf']").val();
+        var header = "X-CSRF-TOKEN";
+
+        xmlHttpRequest.setRequestHeader(header, token);
+
+        xmlHttpRequest.send();
+    });
+
+    // Event when the download button(jQuery) is clicked
+    $('#download-jquery').click(function() {
+        event.preventDefault();
+
+        // Get value form
+        var formData = $('#download-form').serializeArray();
+
+        $.ajax({
+            type:'post',
+            url:'/user/list/download',
+            data:formData,
+            xhrFields:{
+                responseType:'blob'
+            },
+        })
+
+            .done(function(data, status, jqXHR) {
+                var fileName='userListJQuery.csv';
+                const blob = new Blob([data], {type:data.type});
+
+                fileSave(data, fileName);
+            })
+
+            .fail(function(jqXHR, status, errorThrown){
+                alert("File download failure");
+            })
+
+            .always(function(data, status, errorThrown) {
+                // process to always execute
+            })
+    });
+
 });
+
+function fileSave(blob, fileName) {
+    // in case of using IE browser
+    if (window.navigator.msSaveBlob) {
+        window.navigator.msSaveBlob(blob, fileName);
+    }
+
+    // in case of using others
+    else {
+        var a = document.createElement('a');
+        var blobUrl = window.URL.createObjectURL(blob);
+
+        document.body.appendChild(a);
+        a.style = 'display:none';
+        a.href = blobUrl;
+        a.download = fileName;
+        a.click();
+    }
+}
 
 function search() {
     // get the value form

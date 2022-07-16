@@ -16,9 +16,11 @@
 
     <body>
         <div layout:fragment="content">
+
             <div class="header border-bottom">
                 <h1 class="h2"> User List </h1>
             </div>
+
             <div class="mb-4">
                 <form id="user-search-form" method="post" th:action="@{/user/list}" class="row g-3 align-items-center" th:object="${userListForm}">
                     <div class="col-auto">
@@ -39,6 +41,7 @@
                     </div>
                 </form>
             </div>
+
             <!-- List display -->
             <div>
                 <table class="table table-striped table-bordered table-hover">
@@ -85,8 +88,11 @@
 
             <!-- File Download -->
             <form id="download-form" method="post" th:action="@{/user/list/download}" class="form-check-inline">
-                <button> download </button>
+                <button type="submit" class="btn btn-primary"> download </button>
+                <button id="download-java-script" class="btn btn-primary m-lg-3"> download(JS) </button>
+                <button id="download-jquery" class="btn btn-primary m-lg-3"> download(jQuery) </button>
             </form>
+
         </div>
     </body>
 </html>
