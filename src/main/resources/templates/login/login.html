@@ -26,16 +26,14 @@
                    class="text-danger"> Login Error Message
                 </p>
                 <!-- User ID -->
-                <div class="form-group">
-                    <label for="userId" class="sr-only">  </label>
-                    <input type="text" class="form-control" placeholder="User ID" name="userId" id="userId"/>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" placeholder="User ID" name="userId" id="userId">
+                    <label for="userId"> User Id </label>
                 </div>
                 <!-- Password -->
-                <div class="form-group">
-                    <label for="password" class="sr-only">  </label>
-                    <input type="text" class="form-control" placeholder="Password" name="password" id="password"/>
-                    <!-- input type for password must be "password". Here it is specified as "text"
-                     just for the purpose of display of the input value. -->
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+                    <label for="password"> Password </label>
                 </div>
                 <!-- Login button -->
                 <input type="submit" value="Login" class="btn btn-primary mt-3" />
